@@ -1,3 +1,14 @@
 # node-cli-app
 
-Parse web data and display JSON upon selector queries
+A node cli app that parses web data and display JSON output upon (specific) selector queries. 
+
+
+## setup
+
+```
+npm install -g node-cli-app
+```
+
+## usage
+
+type `ag-node-cli-app` to enter the terminal applicaiton.
