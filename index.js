@@ -2,16 +2,6 @@
 const { files, logic, parse, prompt, welcome } = require('./lib');
 const chalk = require('chalk');
 
-
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-
-
 (async () => {
 
   // markup
@@ -26,18 +16,25 @@ const rl = readline.createInterface({
     files.createAndSaveNewFile('data.json', data);
   }
 
-  console.log(`Type "${chalk.redBright('exit')}" anytime to exit terminal`);
+  console.log(chalk.yellow(`Type ${chalk.underline.red('exit')} anytime to leave terminal`));
 
   while(true) { // prompt for selector
 
-    const { selector } = await prompt.askQuestion();
-    if(selector.toLowerCase().trim() === 'exit') break; // stop query
-    const resultData = logic.getViewDataFromFile(parseData, selector);
+    let { selector } = await prompt.askQuestion();
+    if(selector.toLowerCase().trim() === 'exit') {
+      console.log(chalk.blue('Goodbye'));
+      break;
+    }
 
-    console.log(
-      resultData,
-      chalk.greenBright(`\n\n Total of ${ chalk.underline.magentaBright(resultData.length) } views \n\n`)
-    );
+    selector = logic.sanitizeInput(selector)
+    const resultData = logic.getViewDataFromFile(parseData, selector);
+    if(!resultData.length) {
+      console.log(chalk.yellowBright(`==== Sorry. Please try another Selector or type ${chalk.underline.red('exit')} to leave terminal ====`))
+    }
+    else {
+      console.log(resultData, emoji.get('goodbye'));
+      console.log(chalk.greenBright(`\n Total of ${ chalk.underline.magentaBright(`${resultData.length}`) } views \n`));
+    }
   }
 
 
