@@ -30,7 +30,7 @@ module.exports = async () => {
     for(let selector of selectorArr) {
       if(selector.length) {
         const resultData = logic.getViewDataFromFile(parseData, selector);
-        prompt.printQueryResponse(resultData);
+        prompt.printQueryResponse(resultData, selector);
       }
     }
   }
