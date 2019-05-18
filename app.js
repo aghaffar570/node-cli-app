@@ -20,20 +20,18 @@ module.exports = async () => {
 
   while(true) { // prompt for selector
 
-    let { selector } = await prompt.askQuestion();
+    let { selector } = await prompt.makeQuery();
     if(selector.toLowerCase().trim() === 'exit') {
       console.log(chalk.blue('Goodbye'));
       break;
     }
 
-    selector = logic.sanitizeInput(selector)
-    const resultData = logic.getViewDataFromFile(parseData, selector);
-    if(!resultData.length) {
-      console.log(chalk.yellowBright(`==== Sorry. Please try another Selector or type ${chalk.underline.red('exit')} to leave terminal ====`))
-    }
-    else {
-      console.log(resultData);
-      console.log(chalk.greenBright(`\n Total of ${ chalk.underline.magentaBright(`${resultData.length}`) } views \n`));
+    const selectorArr = logic.sanitizeInput(selector);
+    for(let selector of selectorArr) {
+      if(selector.length) {
+        const resultData = logic.getViewDataFromFile(parseData, selector);
+        prompt.printQueryResponse(resultData);
+      }
     }
   }
 

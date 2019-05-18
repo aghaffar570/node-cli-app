@@ -14,7 +14,9 @@ npm install -g node-cli-app
 ## usage
 
 type `ag-node-cli-app` to enter the terminal applicaiton.
-      
+
+Supports: **class, classNames, identifier selectors, and Compound View Attributes.**
+
 ** the app will create a data.json file in your filesystem containing the parsed data
 
 
