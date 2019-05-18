@@ -4,10 +4,12 @@ A node cli app that parses web data and display JSON output upon (specific) sele
 
 
 ## setup
+From the npm registry:
+```
+npm install -g @aghaffar570/node-cli-app
+```
 
-```
-npm install -g node-cli-app
-```
+or clone the repo and start using shown below.
 
 ## usage
 
