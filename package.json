@@ -2,7 +2,11 @@
   "name": "node-cli-app",
   "version": "1.0.0",
   "description": "parses web data and searches JSON for selector queries",
+  "preferGlobal": true,
   "main": "index.js",
+  "bin": {
+    "ag-node-cli-app": "index.js"
+  },
   "scripts": {
     "start": "node index.js"
   },
