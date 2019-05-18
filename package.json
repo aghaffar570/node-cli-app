@@ -1,0 +1,15 @@
+{
+  "name": "node-cli-app",
+  "version": "1.0.0",
+  "description": "parses web data and searches JSON for selector queries",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "cli",
+    "node"
+  ],
+  "author": "Abdul Ghaffar",
+  "license": "ISC"
+}
