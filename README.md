@@ -14,6 +14,8 @@ npm install -g node-cli-app
 ## usage
 
 type `ag-node-cli-app` to enter the terminal applicaiton.
+      
+** the app will create a data.json file in your filesystem containing the parsed data
 
 
 ## remove package :wave:
