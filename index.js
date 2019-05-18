@@ -26,47 +26,19 @@ const rl = readline.createInterface({
     files.createAndSaveNewFile('data.json', data);
   }
 
+  console.log(`Type "${chalk.redBright('exit')}" anytime to exit terminal`);
 
-  rl.question('Enter (y/n) to begin query:', (start) => {
-    rl.setPrompt('Enter a selector :')
-    rl.prompt()
-    rl.on('line', (selectorInput) => {
+  while(true) { // prompt for selector
 
-      const resultData = logic.getViewDataFromFile(parseData, selectorInput)
-      console.log(
-        resultData.length ? resultData : 'No such selector exist'
-      )
+    const { selector } = await prompt.askQuestion();
+    if(selector.toLowerCase().trim() === 'exit') break; // stop query
+    const resultData = logic.getViewDataFromFile(parseData, selector);
 
-      if(selectorInput.toLowerCase().trim() === 'n'
-      || selectorInput.toLowerCase().trim() === 'no') {
-        console.log('Goodbye')
-        rl.close()
-      }
-      else {
-        rl.setPrompt('Enter a selector :')
-        rl.prompt()
-      }
-    })
-
-  })
-
-
-
-
-
-
-
-
-
-  // const resultData = logic.getViewDataFromFile(parseData, 'StackView')
-  // const resultData = logic.getViewDataFromFile(parseData, 'container')
-  // const resultData = logic.getViewDataFromFile(parseData, 'videoMode')
-
-  // console.log(
-  //   'search selector view >> \n\n\n',
-  //   resultData,
-  //   chalk.greenBright(`\n\n Total of ${ chalk.underline.magentaBright(resultData.length) } views \n\n`)
-  // )
+    console.log(
+      resultData,
+      chalk.greenBright(`\n\n Total of ${ chalk.underline.magentaBright(resultData.length) } views \n\n`)
+    );
+  }
 
 
 })()
