@@ -10,7 +10,7 @@
     "cli",
     "node"
   ],
-  "author": "Abdul Ghaffar",
+  "author": "Abdul Ghaffar <aghaffar570@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.2",

@@ -1,5 +1,6 @@
 // utils
-const { files, parse, welcome } = require('./lib');
+const { files, logic, parse, welcome } = require('./lib');
+const chalk = require('chalk');
 
 (async () => {
 
@@ -16,7 +17,15 @@ const { files, parse, welcome } = require('./lib');
     files.createAndSaveNewFile('data.json', data);
   }
 
+  const resultData = logic.getViewDataFromFile(parseData, 'StackView')
+  // const resultData = logic.getViewDataFromFile(parseData, 'container')
+  // const resultData = logic.getViewDataFromFile(parseData, 'videoMode')
+
+  console.log(
+    'search selector view >> \n\n\n',
+    resultData,
+    chalk.greenBright(`\n\n Total of ${ chalk.underline.magentaBright(resultData.length) } views \n\n`)
+  )
 
 
-  console.log('parsed data >> \n\n\n', parseData)
 })()
