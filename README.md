@@ -20,6 +20,12 @@ Supports: **class, classNames, identifier selectors, and Compound View Attribute
 ** the app will create a data.json file in your filesystem containing the parsed data
 
 
+
+## alternative setup
+
+clone the repository and run `npm start` to run the cli app.
+
+
 ## remove package :wave:
 
 ```
