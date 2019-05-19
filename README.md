@@ -23,7 +23,9 @@ Supports: **class, classNames, identifier selectors, and Compound View Attribute
 
 ## alternative setup
 
-clone the repository and run `npm start` to run the cli app.
+clone the repository.
+
+run `npm install` followed by `npm start` to run the cli app.
 
 
 ## remove package :wave:
