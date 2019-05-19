@@ -4,6 +4,8 @@
 
 A node cli app that parses web data and displays JSON output upon (specific) selector queries.
 
+** see TASK.md for details
+
 
 ## setup
 ```
